@@ -1,0 +1,20 @@
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 16px;
+  color: #5F7D8C;
+  font-weight: 300;
+  margin-top: 3em;
+}
+
+h3 {
+  font-size: 18px;
+  color: #000;
+}
+
+.form-control,
+select.form-control {
+  border-radius: 0;
+  max-width: 200px;
+  display: inline-block;
+}

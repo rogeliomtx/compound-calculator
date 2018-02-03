@@ -1,0 +1,18 @@
+{
+  "name": "vest-calculadora",
+  "version": "1.0.0",
+  "description": "Calculadora de interés compuesto con enfoque en inversiones",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "investment",
+    "vestwm",
+    "vest",
+    "compound",
+    "interest"
+  ],
+  "author": "@rogeliomtx",
+  "license": "ISC"
+}
