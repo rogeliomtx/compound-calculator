@@ -19,7 +19,11 @@ select.form-control {
   display: inline-block;
 }
 
-#totalInversion {
+.output {
+  text-align: center;
+}
+
+.output .primary {
   font-size: 50px;
   text-align: center;
 }

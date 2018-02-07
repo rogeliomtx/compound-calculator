@@ -45,8 +45,8 @@ $(document).ready(function(){
         var depositosAlAxo = tipoPeriodoAhorroRecurrente;
         console.log(depositosAlAxo);
 
-        totalInversion = calculateCompoundInterest(ahorroInicial, ahorroRecurrente, interes, depositosAlAxo, periodo);
-        totalAhorro = ahorroInicial + (ahorroRecurrente * tipoPeriodoAhorroRecurrente * periodo);
+        totalInversion = calculateCompoundInterest(ahorroInicial, ahorroRecurrente, interes, depositosAlAxo, periodo, tipoPeriodo);
+        totalAhorro = ahorroInicial + (ahorroRecurrente * tipoPeriodoAhorroRecurrente * periodo / tipoPeriodo);
         totalInteres = totalInversion - totalAhorro;
 
         $totalInversion.text(toCurrency(totalInversion));
