@@ -14,57 +14,79 @@
   </head>
   <body>
     <div class="container">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Calculadora de inversión</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Calculadora de retiro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Calculadora de hipoteca</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+          <h2 class="mb-5">Calculadora de inversión</h2>
+          <div class="row mb-3">
+            <div class="col-6">
+              <h3>Ahorro inicial</h3>
+              <p>Con una inversión inical de...</p>
+              <div class="form-group">
+                <input type="number" min="0" id="ahorroInicial" class="form-control" value="1000">
+              </div>
+            </div>
 
-      <div class="row mb-3">
-        <div class="col-6">
-          <h3>Ahorro inicial</h3>
-          <p>Con una inversión inical de...</p>
-          <div class="form-group">
-            <input type="number" min="0" id="ahorroInicial" class="form-control" value="1000">
+            <div class="col-6">
+              <h3>Ahorro recurrente</h3>
+              <p>Quiero ahorrar...</p>
+              <div class="form-group">
+                <input type="number" min="100" id="ahorroRecurrente" class="form-control" value="1000">
+
+                <select id="tipoPeriodoAhorroRecurrente" class="form-control">
+                  <option value="12">Mensuales</option>
+                  <option value="24">Quincenales</option>
+                  <option value="1">Anuales</option>
+                </select>
+              </div>
+            </div>
           </div>
+
+          <div class="row">
+            <div class="col-6">
+              <h3>Periodo</h3>
+              <p>Durante...</p>
+              <div class="form-group">
+                <input type="number" min="1" id="periodo" class="form-control" value="1">
+                <select id="tipoPeriodo" class="form-control">
+                  <option value="1">Año(s)</option>
+                  <option value="12">Mes(es)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <h3>Interés</h3>
+              <p>Con un interés de...</p>
+              <div class="form-group">
+                <input type="number" id="interes" class="form-control" value="7">
+              </div>
+            </div>
+          </div>
+
+          <input type="submit" value="calcular" id="calcular" class="btn btn-primary btn-lg">
+
+          <div id="totalInversion"></div>
+          <span id="totalAhorro"></span>
+          <span id="totalInteres"></span>
         </div>
-
-        <div class="col-6">
-          <h3>Ahorro recurrente</h3>
-          <p>Quiero ahorrar...</p>
-          <div class="form-group">
-            <input type="number" min="100" id="ahorroRecurrente" class="form-control" value="1000">
-
-            <select id="tipoPeriodoAhorroRecurrente" class="form-control">
-              <option value="12">Mensuales</option>
-              <option value="24">Quincenales</option>
-              <option value="1">Anuales</option>
-            </select>
-          </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <h2>Calculadora de retiro</h2>
+        </div>
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <h2>Calculadora de hipoteca</h2>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-6">
-          <h3>Periodo</h3>
-          <p>Durante...</p>
-          <div class="form-group">
-            <input type="number" min="1" id="periodo" class="form-control" value="1">
-            <select id="tipoPeriodo" class="form-control">
-              <option value="1">Año(s)</option>
-              <option value="24">Quincena(s)</option>
-              <option value="12">Mes(es)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="col-6">
-          <h3>Interés</h3>
-          <p>Con un interés de...</p>
-          <div class="form-group">
-            <input type="number" id="interes" class="form-control" value="7">
-          </div>
-        </div>
-      </div>
-
-      <input type="submit" value="calcular" id="calcular" class="btn btn-primary btn-lg">
-
-      <div id="total"></div>
     </div>
 
     <!-- Optional JavaScript -->

@@ -10,32 +10,50 @@ $(document).ready(function(){
       $tipoPeriodo = $('#tipoPeriodo'),
 
       $interes = $('#interes'),
-      $total = $('#total'),
+      $totalInversion = $('#totalInversion'),
+      $totalAhorro = $('#totalAhorro'),
+      $totalInteres = $('#totalInteres'),
 
       $calcular = $('#calcular');
 
 
       $calcular.click(function() {
-        var ahorroInicial = $ahorroInicial.val(),
-            ahorroRecurrente = $ahorroRecurrente.val(),
-            tipoPeriodoAhorroRecurrente = $tipoPeriodoAhorroRecurrente.val(),
-            periodo = $periodo.val(),
-            tipoPeriodo = $tipoPeriodo.val(),
-            interes = $interes.val();
+        var ahorroInicial = parseInt($ahorroInicial.val()),
+            ahorroRecurrente = parseInt($ahorroRecurrente.val()),
+            tipoPeriodoAhorroRecurrente = parseInt($tipoPeriodoAhorroRecurrente.val()),
+            periodo = parseInt($periodo.val()),
+            tipoPeriodo = parseInt($tipoPeriodo.val()),
+            interes = parseInt($interes.val()),
 
-        /*  */
-        ahorroRecurrente = 0;
+            totalInversion = 0,
+            totalAhorro = 0,
+            totalInteres = 0;
 
-        /* calcular periodos */
-        periodo = periodo * tipoPeriodo;
+        if (tipoPeriodoAhorroRecurrente < tipoPeriodo){
+          alert("el periodo tiene que ser mayor al ahorro recurrente");
+          return;
+        }
 
+        //periodo *= tipoPeriodoAhorroRecurrente / tipoPeriodo;
 
+          interes /= 100;
+        /*
+          interes /= tipoPeriodoAhorroRecurrente / tipoPeriodo;
+          interes /= tipoPeriodo;
+        */
 
+        var depositosAlAxo = tipoPeriodoAhorroRecurrente;
+        console.log(depositosAlAxo);
 
-        console.log(ahorroInicial, ahorroRecurrente, tipoPeriodoAhorroRecurrente, periodo, tipoPeriodo, interes);
-        result = calculateCompoundInterest(ahorroInicial, ahorroRecurrente, periodo, interes);
+        totalInversion = calculateCompoundInterest(ahorroInicial, ahorroRecurrente, interes, depositosAlAxo, periodo);
+        totalAhorro = ahorroInicial + (ahorroRecurrente * tipoPeriodoAhorroRecurrente * periodo);
+        totalInteres = totalInversion - totalAhorro;
 
-        $total.text(toCurrency(result));
+        $totalInversion.text(toCurrency(totalInversion));
+        $totalAhorro.text(toCurrency(totalAhorro));
+        $totalInteres.text(toCurrency(totalInteres));
       });
 
 });
+
+/* 12,464 MXN */

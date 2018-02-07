@@ -1,5 +1,31 @@
 
 
+/*
+  principal: initial investment
+  annualInterest: interest in decimal
+  compoundingFrequency: monthly: 12, yearly: 1
+  period: time in years
+  payment: regular contribution
+*/
+function calculateCompoundInterest(principal, payment, annualInterest, compoundingFrequency, period) {
+  var p = principal,
+      r = annualInterest,
+      n = compoundingFrequency,
+      np = 1, /* compound by year */
+      t = period,
+      pmt = payment,
+      a = 0;
+
+      if (p)
+        a = p * Math.pow(1 + r/np, np*t);
+
+      a += (pmt * (Math.pow(1 + r/n, n*t) - 1)) / (r/n);
+
+      return a;
+}
+
+
+/*
 function calculateCompoundInterest(initialInvestment, investment, period, interest) {
   var i = interest;
   var n = period;
@@ -9,7 +35,7 @@ function calculateCompoundInterest(initialInvestment, investment, period, intere
 
   return parseInt(total.toString().split('.')[0]);
 }
-
+*/
 
 function toCurrency(number) {
   var format = new Intl.NumberFormat(
