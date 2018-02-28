@@ -19,11 +19,29 @@ select.form-control {
   display: inline-block;
 }
 
+/* total = return investment + saves */
 .output {
   text-align: center;
+  font-size: 18px;
 }
 
-.output .primary {
-  font-size: 50px;
+.output .number {
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.primary div,
+.secondary div {
+  display: inline-block;
+}
+
+
+footer {
+  margin-top: 2em;
+}
+
+footer p {
   text-align: center;
+  color: #ccc;
+  font-size: 12px;
 }

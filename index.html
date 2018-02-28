@@ -8,38 +8,51 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style.css">
 
-    <title>VEST - Calculadora de inversión</title>
+    <title>Calculadora de inversión</title>
+
+    <!-- Share preview -->
+    <meta property="og:url" content="http://labs.metabits.mx/investment/">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Calculadora de inversión">
+    <meta property="og:description" content="Descubre cuánto necesitas para lograr tus metas financeras :)">
+    <meta property="og:image" content="http://labs.metabits.mx/investment/preview.jpg">
+
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="shortcut icon" href="favicon.png" type="image/png" />
+
   </head>
   <body>
     <div class="container">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Calculadora de inversión</a>
+          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-inversion" role="tab" aria-controls="pills-inversion" aria-selected="true">Inversión</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Calculadora de retiro</a>
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-emergencias" role="tab" aria-controls="pills-emergencias" aria-selected="false">Fondo de emergencias</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Calculadora de hipoteca</a>
+          <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-retiro" role="tab" aria-controls="pills-retiro" aria-selected="false">Retiro</a>
         </li>
       </ul>
       <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-          <h2 class="mb-5">Calculadora de inversión</h2>
+        <div class="tab-pane fade show active" id="pills-inversion" role="tabpanel" aria-labelledby="pills-home-tab">
+          <h2 class="mb-1">Calculadora de inversión</h2>
+          <p class="mb-5">¿Cuánto necesitas ahorrar para llegar a tu meta? Si invirtieras ese dinero ¿Cuánto más obtendrías?</p>
           <div class="row mb-3">
-            <div class="col-6">
-              <h3>Ahorro inicial</h3>
-              <p>Con una inversión inical de...</p>
+            <div class="col-sm-6">
+              <h3>Inversión inicial</h3>
+              <p>Con una inversión inicial de...</p>
               <div class="form-group">
                 <input type="number" min="0" id="ahorroInicial" class="form-control" value="1000">
               </div>
             </div>
 
-            <div class="col-6">
-              <h3>Ahorro recurrente</h3>
-              <p>Quiero ahorrar...</p>
+            <div class="col-sm-6">
+              <h3>Inversión recurrente</h3>
+              <p>Quiero invertir...</p>
               <div class="form-group">
                 <input type="number" min="100" id="ahorroRecurrente" class="form-control" value="1000">
 
@@ -53,7 +66,7 @@
           </div>
 
           <div class="row">
-            <div class="col-6">
+            <div class="col-sm-6">
               <h3>Periodo</h3>
               <p>Durante...</p>
               <div class="form-group">
@@ -65,11 +78,14 @@
               </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-sm-6">
               <h3>Interés</h3>
               <p>Con un interés de...</p>
-              <div class="form-group">
+              <div class="input-group mb-3">
                 <input type="number" id="interes" class="form-control" value="7">
+                <div class="input-group-append">
+                  <span class="input-group-text">%</span>
+                </div>
               </div>
             </div>
           </div>
@@ -78,28 +94,36 @@
 
           <div class="output">
             <div class="primary">
-              <span id="totalInversion"></span>
-              <span>TOTAL</span>
+              <div class="number" id="totalInversion"></div>
+              <div class="title">TOTAL</div>
             </div>
             <div class="secondary">
-              <span id="totalAhorro"></span>
-              <span>AHORRO</span>
+              <div class="number" id="totalAhorro"></div>
+              <div class="title">INVERSIÓN</div>
             </div>
             <div class="secondary">
-              <span id="totalInteres"></span>
-              <span>RENDIMIENTO</span>
+              <div class="number" id="totalInteres"></div>
+              <div class="title">RENDIMIENTO</div>
             </div>
           </div>
 
         </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-          <h2>Calculadora de retiro</h2>
+        <div class="tab-pane fade" id="pills-emergencias" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <h2>Fondo de emergencias</h2>
+          <p>Próximamente :)</p>
         </div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-          <h2>Calculadora de hipoteca</h2>
+        <div class="tab-pane fade" id="pills-retiro" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <h2>Retiro</h2>
+          <p>Próximamente :)</p>
         </div>
       </div>
     </div>
+
+    <footer>
+      <div class="container">
+        <p><span class="fa fa-code"></span> with <span class="fa fa-heart"></span> by @rogeliomtx</p>
+      </div>
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -108,5 +132,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="assets/compound-interest.js"></script>
     <script src="assets/script.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-76310655-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-76310655-3');
+    </script>
   </body>
 </html>

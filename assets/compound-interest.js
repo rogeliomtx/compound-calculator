@@ -1,6 +1,8 @@
 
 
 /*
+  Calculadora de interes compuesto con pagos
+
   principal: initial investment
   annualInterest: interest in decimal
   compoundingFrequency: monthly: 12, yearly: 1
@@ -22,7 +24,7 @@ function calculateCompoundInterest(principal, payment, annualInterest, compoundi
       if (p)
         a = p * Math.pow(1 + r/np, np*t);
 
-      a += (pmt * (Math.pow(1 + r/n, n*t) - 1)) / (r/n);
+      a += ( (pmt * (Math.pow(1 + r/n, n*t) - 1)) / (r/n) ) * (1 + r/n);
 
       return a;
 }
@@ -50,4 +52,14 @@ function toCurrency(number) {
   );
 
   return format.format(number) + " MXN";
+}
+
+/*
+  Calculadora de fondo de emergencias
+*/
+
+function calculateEmergency(income, total, term, payment) {
+
+
+
 }
