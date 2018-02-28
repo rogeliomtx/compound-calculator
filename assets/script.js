@@ -1,60 +1,58 @@
 
-$(document).ready(function(){
+$(document).ready(function() {
 
-  var $ahorroInicial = $('#ahorroInicial'),
+  var $initialInvestment = $('#ahorroInicial'),
 
-      $ahorroRecurrente = $('#ahorroRecurrente'),
-      $tipoPeriodoAhorroRecurrente = $('#tipoPeriodoAhorroRecurrente'),
+      $investment = $('#ahorroRecurrente'),
+      $investmentTerm = $('#tipoPeriodoAhorroRecurrente'),
 
-      $periodo = $('#periodo'),
-      $tipoPeriodo = $('#tipoPeriodo'),
+      $term = $('#periodo'),
+      $termType = $('#tipoPeriodo'),
 
-      $interes = $('#interes'),
-      $totalInversion = $('#totalInversion'),
-      $totalAhorro = $('#totalAhorro'),
-      $totalInteres = $('#totalInteres'),
+      $returnRate = $('#interes'),
+      $totalInvestment = $('#totalInversion'),
+      $totalSaves = $('#totalAhorro'),
+      $totalRevenue = $('#totalInteres'),
 
-      $calcular = $('#calcular');
+      $calculateInvestment = $('#calculateInvestment');
 
 
-  $calcular.click(function() {
-    var ahorroInicial = $ahorroInicial.val() ? parseInt($ahorroInicial.val()) : 0,
-        ahorroRecurrente = $ahorroRecurrente.val() ? parseInt($ahorroRecurrente.val()) : 0,
-        tipoPeriodoAhorroRecurrente = parseInt($tipoPeriodoAhorroRecurrente.val()),
-        periodo = $periodo.val() ? parseInt($periodo.val()) : 0,
-        tipoPeriodo = parseInt($tipoPeriodo.val()),
-        interes = $interes.val() ? parseInt($interes.val()) : 0,
+  /*
+    Calculator of invesment
+    c = 0
+  */
+  $calculateInvestment.click(function() {
+    var initialInvestment = $initialInvestment.val() ? parseInt($initialInvestment.val()) : 0,
+        investment = $investment.val() ? parseInt($investment.val()) : 0,
+        investmentTerm = parseInt($investmentTerm.val()),
+        term = $term.val() ? parseInt($term.val()) : 0,
+        termType = parseInt($termType.val()),
+        returnRate = $returnRate.val() ? parseInt($returnRate.val()) : 0,
 
-        totalInversion = 0,
-        totalAhorro = 0,
-        totalInteres = 0;
+        totalInvestment = 0,
+        totalSaves = 0,
+        totalRevenue = 0;
 
-    if (tipoPeriodoAhorroRecurrente < tipoPeriodo){
+    /* 01 validate */
+    if (investmentTerm < termType) {
       alert("el periodo tiene que ser mayor al ahorro recurrente");
       return;
     }
 
-    //periodo *= tipoPeriodoAhorroRecurrente / tipoPeriodo;
+    /* 02 calculate */
+    returnRate /= 100;
 
-      interes /= 100;
-    /*
-      interes /= tipoPeriodoAhorroRecurrente / tipoPeriodo;
-      interes /= tipoPeriodo;
-    */
-
-    var depositosAlAxo = tipoPeriodoAhorroRecurrente;
-    console.log(depositosAlAxo);
-
-    if (interes == 0)
-      totalInversion = ahorroInicial + (ahorroRecurrente * tipoPeriodoAhorroRecurrente * periodo / tipoPeriodo);
+    if (returnRate == 0)
+      totalInvestment = initialInvestment + (investment * investmentTerm * term / termType);
     else
-      totalInversion = calculateCompoundInterest(ahorroInicial, ahorroRecurrente, interes, depositosAlAxo, periodo, tipoPeriodo);
+      totalInvestment = calculateCompoundInterest(initialInvestment, investment, investmentTerm, term, termType, returnRate);
 
-    totalAhorro = ahorroInicial + (ahorroRecurrente * tipoPeriodoAhorroRecurrente * periodo / tipoPeriodo);
-    totalInteres = totalInversion - totalAhorro;
+    totalSaves = initialInvestment + (investment * investmentTerm * term / termType);
+    totalRevenue = totalInversion - totalAhorro;
 
-    $totalInversion.text(toCurrency(totalInversion));
-    $totalAhorro.text(toCurrency(totalAhorro));
-    $totalInteres.text(toCurrency(totalInteres));
+    /* 03 print results */
+    $totalInvestment.text(toCurrency(totalInvestment));
+    $totalSaves.text(toCurrency(totalSaves));
+    $totalRevenue.text(toCurrency(totalRevenue));
   });
 });

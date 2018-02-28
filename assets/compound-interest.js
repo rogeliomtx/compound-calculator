@@ -3,23 +3,26 @@
 /*
   Calculadora de interes compuesto con pagos
 
-  principal: initial investment
-  annualInterest: interest in decimal
-  compoundingFrequency: monthly: 12, yearly: 1
-  period: time in years
-  payment: regular contribution
-  periodType: months or years
-*/
-function calculateCompoundInterest(principal, payment, annualInterest, compoundingFrequency, period, periodType) {
-  var p = principal,
-      r = annualInterest,
-      n = compoundingFrequency,
-      np = 1, /* compound by year */
-      t = (period/periodType),
-      pmt = payment,
-      a = 0;
+  initialInvestment: initial investment
 
-      console.log(r, n, t, pmt);
+  investment: regular contribution
+  periodType: months or years
+
+  depositsPerYear: monthly: 12, yearly: 1
+  term: term of invesment
+  termType: term type: monthly, yearly
+
+  annualInterest: interest in decimal
+*/
+
+function calculateCompoundInterest(initialInvestment, investment, investmentTerm, term, termType, returnRate) {
+  var p = initialInvestment,
+      r = returnRate,
+      n = investmentTerm,
+      np = 1, /* compound by year */
+      t = (term/termType),
+      pmt = investment,
+      a = 0;
 
       if (p)
         a = p * Math.pow(1 + r/np, np*t);
